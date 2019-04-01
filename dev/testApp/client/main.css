@@ -1,4 +1,35 @@
 body {
-  padding: 10px;
+
   font-family: sans-serif;
+  border : 1px solid black;
+}
+
+header
+{
+	background-color : red;
+	Color : White;
+	padding-left : 10px;
+	padding-top : 30px;	
+	height : 70px;
+}
+
+main
+{
+	padding-top : 20px;
+}
+
+button
+{
+	background-color : red;
+	color : White;
+	border : none;
+	height : 80px;
+	width : 200px;
+	font-size : 20pt;
+}
+
+h1
+{
+	margin-top : 0px;
+	margin-bottom : 10px;
 }
