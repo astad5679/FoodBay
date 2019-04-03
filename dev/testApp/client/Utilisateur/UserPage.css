@@ -1,0 +1,18 @@
+body
+{
+	background-color : 
+}
+
+form
+{
+	padding-left: 3px;
+	border-left: 3px solid Cornflowerblue;
+	background-color : AliceBlue;
+	width: 50%;
+	
+
+}
+input
+{
+	display : flex;
+}
