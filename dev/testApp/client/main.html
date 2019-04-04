@@ -1,8 +1,4 @@
-<head>
-<title> FoodBay </title>
-</head>
-
-<body>
+<template name="home">
 	<header>
 		<h1> FoodBay </h1>
 	</header>
@@ -13,10 +9,38 @@
 			<input type="text" placeholder="Ville ou code postal"> <br>
 			<input type="button" value="Valider">
 		</form>
-		{{> base}}
 	</main>
-</body>
+</template>
 
-<template name="base">
-	{{test}}
+
+
+
+<template name="accueil">
+	<header>
+		<h1> FoodBay </h1>
+	</header>
+	<main>
+		<form>
+			<input type="radio" value="commander" name="request"> Je veux commander <br>
+			<input type ="radio" value="vendre" name="request"> Je veux vendre <br>
+			<input type="text" placeholder="Ville ou code postal"> <br>
+			<input type="button" value="Valider">
+		</form>
+	</main>
+</template>
+
+<template name="user">
+	<header>
+		<h1> Profil Utilisateur</h1>
+	</header>
+	<main>
+	<h2>Mon compte</h2>
+		<form>
+			Nom :<input type="text" name="Nom" value=""> <br>
+			Prénom:<input type="text" name="Prénom" value=""> <br>
+			Ville:<input type="text" name="Ville" value=""> <br>
+			E-mail:<input type="text" name="email" value=""> <br>
+			Note : 5/5 <br>
+		</form>
+	</main>
 </template>
