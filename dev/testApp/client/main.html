@@ -1,24 +1,17 @@
-<template name="home">
+<template name="navBar">
 	<header>
 		<h1> FoodBay </h1>
+		
+		<ul>
+			<li><a href="http://localhost:3000"> Accueil </a></li>
+			<li><a href="http://localhost:3000/user"> Profil </a> </li>
+		</ul>
 	</header>
-	<main>
-		<form>
-			<input type="radio" value="commander" name="request"> Je veux commander <br>
-			<input type ="radio" value="vendre" name="request"> Je veux vendre <br>
-			<input type="text" placeholder="Ville ou code postal"> <br>
-			<input type="button" value="Valider">
-		</form>
-	</main>
+	{{> yield}}
 </template>
 
-
-
-
-<template name="accueil">
-	<header>
-		<h1> FoodBay </h1>
-	</header>
+<template name="home">
+	<h2> Accueil </h2>
 	<main>
 		<form>
 			<input type="radio" value="commander" name="request"> Je veux commander <br>
@@ -30,11 +23,8 @@
 </template>
 
 <template name="user">
-	<header>
-		<h1> Profil Utilisateur</h1>
-	</header>
 	<main>
-	<h2>Mon compte</h2>
+	<h2>Profil Utilisateur</h2>
 		<form>
 			Nom :<input type="text" name="Nom" value=""> <br>
 			Prénom:<input type="text" name="Prénom" value=""> <br>

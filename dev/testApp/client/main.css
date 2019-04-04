@@ -4,6 +4,7 @@ body {
   border : 1px solid black;
 }
 
+/* Barre de navigation */
 header
 {
 	background-color : red;
@@ -11,6 +12,7 @@ header
 	padding-left : 10px;
 	padding-top : 30px;	
 	height : 70px;
+	display : flex;
 }
 
 main
@@ -35,4 +37,16 @@ form
 input
 {
 	display : flex;
+}
+
+ul
+{
+	display : flex;
+}
+
+li
+{
+	display : flex;
+	padding-left : 20px;
+	padding-right: 20px;
 }
