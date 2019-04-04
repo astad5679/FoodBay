@@ -1,7 +1,7 @@
-body {
-
+body 
+{
   font-family: sans-serif;
-  border : 1px solid black;
+  background-color : AliceBlue;
 }
 
 /* Barre de navigation */
@@ -29,9 +29,9 @@ h1
 
 form
 {
-	padding-left: 3px;
+	padding: 5px;
 	border-left: 3px solid Cornflowerblue;
-	background-color : AliceBlue;
+	background-color : #e6eeff;
 
 }
 input

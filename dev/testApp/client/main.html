@@ -3,8 +3,8 @@
 		<h1> FoodBay </h1>
 		
 		<ul>
-			<li><a href="http://localhost:3000"> Accueil </a></li>
-			<li><a href="http://localhost:3000/user"> Profil </a> </li>
+			<li><a href="/"> Accueil </a></li>
+			<li><a href="/user"> Profil </a> </li>
 		</ul>
 	</header>
 	{{> yield}}
@@ -12,18 +12,15 @@
 
 <template name="home">
 	<h2> Accueil </h2>
-	<main>
 		<form>
 			<input type="radio" value="commander" name="request"> Je veux commander <br>
 			<input type ="radio" value="vendre" name="request"> Je veux vendre <br>
 			<input type="text" placeholder="Ville ou code postal"> <br>
 			<input type="button" value="Valider">
 		</form>
-	</main>
 </template>
 
 <template name="user">
-	<main>
 	<h2>Profil Utilisateur</h2>
 		<form>
 			Nom :<input type="text" name="Nom" value=""> <br>
@@ -32,5 +29,4 @@
 			E-mail:<input type="text" name="email" value=""> <br>
 			Note : 5/5 <br>
 		</form>
-	</main>
 </template>
