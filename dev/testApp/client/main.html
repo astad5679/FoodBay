@@ -1,9 +1,10 @@
 <template name="navBar">
 	<header>
 		<h1> FoodBay </h1>
-		
+
 		<ul>
 			<li><a href="/"> Accueil </a></li>
+			<li><a href="/post"> Post </a> </li>
 			<li><a href="/user"> Profil </a> </li>
 		</ul>
 	</header>
@@ -12,21 +13,33 @@
 
 <template name="home">
 	<h2> Accueil </h2>
-		<form>
-			<input type="radio" value="commander" name="request"> Je veux commander <br>
-			<input type ="radio" value="vendre" name="request"> Je veux vendre <br>
-			<input type="text" placeholder="Ville ou code postal"> <br>
-			<input type="button" value="Valider">
-		</form>
+	<form>
+		<input type="radio" value="commander" name="request"> Je veux commander <br>
+		<input type="radio" value="vendre" name="request"> Je veux vendre <br>
+		<input type="text" placeholder="Ville ou code postal"> <br>
+		<input type="button" value="Valider">
+	</form>
+</template>
+
+<template name="post">
+	<h2>Post</h2>
+	<form>
+		Nom du Plat: <input type="text" name="plat" class="post" value="" placeholder="Spaghetti Bolognese"> <br>
+		Portions: <input type="number" name="portions" class="post" value="1"> <br>
+		Ingredients: <br> <textarea name="ingredients" class="post" cols="40" rows="3" placeholder="Spaghetti Barilla n°5, ragoût, Grana Padano, poivre"></textarea> <br>
+		Cout(?): <input type="number" name="cost" class="post" value="0"> <br>
+		Image: <input type="file" name="image" class="post"> <br>
+		<button class="submit">Submit</button> <br>
+	</form>
 </template>
 
 <template name="user">
 	<h2>Profil Utilisateur</h2>
-		<form>
-			Nom :<input type="text" name="Nom" value=""> <br>
-			Prénom:<input type="text" name="Prénom" value=""> <br>
-			Ville:<input type="text" name="Ville" value=""> <br>
-			E-mail:<input type="text" name="email" value=""> <br>
-			Note : 5/5 <br>
-		</form>
+	<form>
+		Nom :<input type="text" name="Nom" value=""> <br>
+		Prénom:<input type="text" name="Prénom" value=""> <br>
+		Ville:<input type="text" name="Ville" value=""> <br>
+		E-mail:<input type="text" name="email" value=""> <br>
+		Note : 5/5 <br>
+	</form>
 </template>
