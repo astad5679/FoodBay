@@ -16,7 +16,10 @@ Router.configure({
 
 });
 
+
 Repas = new Mongo.Collection('repas');
+
+
 
 //Méthodes côté client
 if (Meteor.isClient) {
@@ -52,8 +55,6 @@ if (Meteor.isClient) {
 
 //Méthodes côté serveur
 if (Meteor.isServer) {
-
-	console.log("hey");
 
 	Meteor.methods({
 		// Methode qui crée une entrée repas a chaque fois que le bouton "Submit" est cliqué sur la page "Post"
