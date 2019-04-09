@@ -7,12 +7,40 @@ import './main.html';
 //Iron:Router
 Router.route('/post');
 Router.route('/user');
-Router.route('/', {
-	template: 'home'
+
+Router.route('/', function(){
+    this.render('navBar', {
+        to: "navBar"
+    });
+    this.render('home', {
+        to: "main"
+    });
+})
+Router.route('/merci', function(){
+    this.render('navBar', {
+        to: "navBar"
+    });
+    this.render('merci', {
+        to: "main"
+    });
+})
+
+Router.route('/details/:_id', function(){
+    this.render('navBar', {
+        to: "navBar"
+    });
+    this.render('detail', {
+        to: 'main',
+        data: function(){
+            return Repas.findOne({_id:this.params._id});
+        }
+    })
 });
 
+
+//layoutTemplate doit être nommé 'main' mais pas 'navBar'
 Router.configure({
-	layoutTemplate: 'navBar'
+	layoutTemplate: 'main'
 
 });
 
@@ -22,7 +50,7 @@ Repas = new Mongo.Collection('repas');
 
 
 //Méthodes côté client
-if (Meteor.isClient) {
+if(Meteor.isClient) {
 	console.log("Essai de la console");
 
 	Template.home.helpers({
@@ -37,7 +65,6 @@ if (Meteor.isClient) {
 
 
 	});
-
 	Template.post.events({
 		'submit form': function (event) {
 			event.preventDefault();
@@ -50,7 +77,7 @@ if (Meteor.isClient) {
 			Meteor.call('insertRepas', (platNom, platPortions, platIngredients, platCout, platImage));
 			console.log("Nouveau repas");
 		},
-	})
+    });
 }
 
 //Méthodes côté serveur
