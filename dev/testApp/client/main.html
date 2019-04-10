@@ -6,7 +6,7 @@
 	<header>
 		<h1> FoodBay </h1>
 
-		<ul>
+		<ul id="navUL">
 			<li><a class="nav-button" href="/"> Accueil </a></li>
 			<li><a class="nav-button" href="/post"> Ajouter un plat </a> </li>
 			<li><a class="nav-button" href="/user"> Profil </a> </li>
@@ -53,8 +53,9 @@
 	<!--liste qui affiche le nom et le pris des repas dans la BD repas-->
 	<ul class="accueil">
 		{{#each repas}}
-		<li class="accueil">{{nom}} pour {{prix}}.-</li>
+		<li class="accueil">{{image}} {{nom}} pour {{prix}}.- Posted by {{currentUserID}}</li><br>
 		{{/each}}
+		<li><input type="submit" value="Repas Test" class="test">Spaghetti Bolognese pour 40.- Posted by Mr. X.</li>
 	</ul>
 	<!--<form>
 		<input type="radio" value="commander" name="request"> Je veux commander <br>
@@ -67,25 +68,21 @@
 <template name="post">
 	<h2>Post</h2>
 	<form class="ajouter-repas">
-		<!-- Pour ne pas avoir 2 differents forms,
-			  on peut enlever l'option "je veux commander" et faire une liste des repas dans la page d'acceuil.
-			  Donc on aura pas besoin de l'option "je veux vendre" dans la formulaire non plus.
-			  On peut juste mettre un button dans la page d'acceuil pour la page de formulaire.-->
-
-
 		<!--<label for="request"> Je veux commander</label>
 			<input type="radio" value="commander" name="request">
 			<label for="request">Je veux vendre</label>
 			<input type ="radio" value="vendre" name="request"> -->
 
 		<label for="nom">Nom de Plat:</label>
-		<input type="text" name="nom" placeholder="Nom de repas">
+		<input type="text" name="nom" placeholder="Spaghetti Bolognese">
+
 		<label>Veuillez choisir</label><br>
 		<select name="type">
 			<option>Non salé ni sucré</option>
 			<option>Salé</option>
 			<option>sucré</option>
 		</select><br>
+
 		<label>Veuillez choisir</label><br>
 		<select name="estVeg">
 			<option>non vegane</option>
@@ -93,31 +90,38 @@
 			<option>Vegan</option>
 			<option>Végétarien</option>
 		</select><br>
+
 		<label for="ingredients">Ingredients:</label><br>
 		<textarea name="ingredients" class="post" cols="40" rows="3"
 			placeholder="Spaghetti Barilla n°5, ragoût, Grana Padano, poivre"></textarea><br>
+
 		<label for="portions">Portions:</label>
 		<input type="number" name="portions" value="1">
+
 		<label for="lieu">Ville ou Code Postal:</label>
 		<input type="text" name="lieu" placeholder="Ville ou code postal">
+
 		<label for="image-source">Image</label>
 		<input type="text" placeholder="url pour l'image ex: https://ww..." name="image_url">
-		<input type="text" name="image_alt" placeholder="alternative texte pour l'image">
+		<!-- <input type="file" name="image"> -->
+		<input type="text" name="image_alt" placeholder="Texte alternatif pour l'image">
 		<!-- alternatif texte pour les images est très important pour ceux qui utilisent "screen reader" (aveugles par ex.)
 			 et pour ceux qui peuvent pas voir les images, ils vont voir ce texte-->
+
 		<label for="description">Description:</label>
 		<input type="textarea" name="description">
-		<label for="addresse">Adresse:</label>
+
+		<label for="adresse">Adresse:</label>
 		<input type="text" name="adresse">
+
 		<label for="prix">Le prix:</label>
 		<input type="number" name="prix" class="post" value="0"> <br>
-		<input type="submit" value="Valider"> <!-- pour un formulaire c'est bien d'utiliser input type="submit" -->
+		<input type="submit" value="Valider">
 	</form>
 
 </template>
 
-<!-- Template utilisé nul part. De quelle page provient-il ? -->
-<template name="detail">
+<template name="details">
 	<div class="repas-detail-main">
 		<div class="repas-detail gauche">
 			<h1 class="nom"><strong>Nom du Plat:</strong> {{nom}}</h1>
@@ -135,18 +139,6 @@
 			<p class="utilisateur"><strong>Ajouté par:</strong> {{utilisateur}}</p>
 		</div>
 	</div>
-
-	<!-- {{#if currentUser}}
-	<form>
-		Nom du Plat: <input type="text" name="plat" class="post" value="" placeholder="Spaghetti Bolognese"> <br>
-		Portions: <input type="number" name="portions" class="post" value="1"> <br>
-		Ingredients: <br> <textarea name="ingredients" class="post" cols="40" rows="3"
-			placeholder="Spaghetti Barilla n°5, ragoût, Grana Padano, poivre"></textarea> <br>
-		Cout(?): <input type="number" name="cost" class="post" value="0"> <br>
-		Image: <input type="file" name="image" class="post"> <br>
-		<input type="submit" value="Submit"> <br>
-	</form>
-	{{/if}} -->
 </template>
 
 <!-- merci page à laquelle on est redirigé après avoir enregistrer la recette -->
