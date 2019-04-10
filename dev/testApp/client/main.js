@@ -80,12 +80,11 @@ if(Meteor.isClient) {
 	console.log("Essai de la console");
 	Meteor.subscribe('theRepas');
 
+//récupération des éléments de la BD pour l'accueil
 	Template.home.helpers({
-		test() {
-			return "Test";
-		}
-
-
+		'repas': function(){
+            return Repas.find()
+        }
 	});
 
 	Template.home.events({
