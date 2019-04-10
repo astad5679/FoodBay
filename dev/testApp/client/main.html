@@ -1,3 +1,7 @@
+<head>
+	<title>FoodBay</title>
+</head>
+
 <template name="navBar">
 	<header>
 		<h1> FoodBay </h1>
@@ -34,6 +38,7 @@
 
 <template name="post">
 	<h2>Post</h2>
+<<<<<<< Updated upstream
 	<form class="ajouter-repas">
 			<!-- Pour ne pas avoir 2 differents forms,
 			  on peut enlever l'option "je veux commander" et faire une liste des repas dans la page d'acceuil.
@@ -104,6 +109,19 @@
 		</div>
 	</div>
 
+=======
+	{{#if currentUser}}
+		<form>
+			Nom du Plat: <input type="text" name="plat" class="post" value="" placeholder="Spaghetti Bolognese"> <br>
+			Portions: <input type="number" name="portions" class="post" value="1"> <br>
+			Ingredients: <br> <textarea name="ingredients" class="post" cols="40" rows="3"
+				placeholder="Spaghetti Barilla n°5, ragoût, Grana Padano, poivre"></textarea> <br>
+			Cout(?): <input type="number" name="cost" class="post" value="0"> <br>
+			Image: <input type="file" name="image" class="post"> <br>
+			<input type="submit" value="Submit"> <br>
+		</form>
+	{{/if}}
+>>>>>>> Stashed changes
 </template>
 
 <!-- merci page à laquelle on est redirigé après avoir enregistrer la recette -->
@@ -111,7 +129,7 @@
 <template name="user">
 	<h2>Profil Utilisateur</h2>
 	<form>
-		Nom :<input type="text" name="Nom" value=""> <br>
+		Nom:<input type="text" name="Nom" value=""> <br>
 		Prénom:<input type="text" name="Prénom" value=""> <br>
 		Ville:<input type="text" name="Ville" value=""> <br>
 		E-mail:<input type="text" name="email" value=""> <br>

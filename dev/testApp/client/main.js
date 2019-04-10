@@ -52,6 +52,7 @@ Repas = new Mongo.Collection('repas');
 //Méthodes côté client
 if(Meteor.isClient) {
 	console.log("Essai de la console");
+	Meteor.subscribe('theRepas');
 
 	Template.home.helpers({
 		test() {
@@ -120,6 +121,11 @@ if(Meteor.isClient) {
 
 //Méthodes côté serveur
 if (Meteor.isServer) {
+
+	Meteor.publish('theRepas', function(){
+		var currentUserId = this.userId;
+		return Repas.find({createdBy: currentUserId})
+	  });
 
 	Meteor.methods({
 		// Methode qui crée une entrée repas a chaque fois que le bouton "Submit" est cliqué sur la page "Post"
