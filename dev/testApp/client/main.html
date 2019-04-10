@@ -28,12 +28,18 @@
 
 <template name="home">
 	<h2> Accueil </h2>
-	<form>
+	<!--liste qui affiche le nom et le pris des repas dans la BD repas-->
+	<ul class="accueil">
+			{{#each repas}}
+			<li class="accueil">{{nom}} pour {{prix}}.-</li>
+			{{/each}}
+	</ul>
+	<!--<form>
 		<input type="radio" value="commander" name="request"> Je veux commander <br>
 		<input type="radio" value="vendre" name="request"> Je veux vendre <br>
 		<input type="text" placeholder="Ville ou code postal"> <br>
 		<input type="button" value="Valider">
-	</form>
+	</form>-->
 </template>
 
 <template name="post">
