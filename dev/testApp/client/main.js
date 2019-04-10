@@ -5,9 +5,30 @@ import './main.html';
 
 
 //Iron:Router
-Router.route('/post');
-Router.route('/user');
-
+Router.route('/post', function(){
+    this.render('navBar', {
+        to: "navBar"
+    });
+    this.render('post', {
+        to: "main"
+    });
+});
+Router.route('/details', function(){
+    this.render('navBar', {
+        to: "navBar"
+    });
+    this.render('details', {
+        to: "main"
+    });
+});
+Router.route('/user', function(){
+    this.render('navBar', {
+        to: "navBar"
+    });
+    this.render('user', {
+        to: "main"
+    });
+});
 Router.route('/', function(){
     this.render('navBar', {
         to: "navBar"
@@ -24,7 +45,6 @@ Router.route('/merci', function(){
         to: "main"
     });
 })
-
 Router.route('/details/:_id', function(){
     this.render('navBar', {
         to: "navBar"
@@ -47,8 +67,6 @@ Router.configure({
 
 Repas = new Mongo.Collection('repas');
 
-
-
 //Méthodes côté client
 if(Meteor.isClient) {
 	console.log("Essai de la console");
@@ -64,9 +82,8 @@ if(Meteor.isClient) {
 
 	Template.home.events({
 
-
 	});
-/*
+
 	Template.post.events({
 		'submit form': function (event) {
 			event.preventDefault();
@@ -80,43 +97,43 @@ if(Meteor.isClient) {
 			console.log("Nouveau repas");
 		},
     });
-*/
-    Template.post.events({
-        'submit .ajouter-repas': function(event){
-            //creer les variable qu'on va utiliser du formulaire
-            var nom, portions, prix, ingredients, lieu, type, image_url, image_alt, description, adresse, estVeg;
 
-            nom = event.target.nom.value;
-            portions = event.target.portions.value;
-            prix = event.target.prix.value;
-            ingredients = event.target.ingredients.value;
-            lieu = event.target.lieu.value;
-            type = event.target.type.value;
-            image_url = event.target.image_url.value;
-            image_alt = event.target.image_alt.value;
-            description = event.target.description.value;
-            adresse = event.target.adresse.value;
-            estVeg = event.target.estVeg.value;
+    // Template.post.events({
+    //     'submit .ajouter-repas': function(event){
+    //         //creer les variable qu'on va utiliser du formulaire
+    //         var nom, portions, prix, ingredients, lieu, type, image_url, image_alt, description, adresse, estVeg;
 
-            Repas.insert({
-                nom: nom,
-                portions: portions,
-                prix: prix,
-                ingredients: ingredients,
-                lieu: lieu,
-                type: type,
-                image_url: image_url,
-                image_alt: image_alt,
-                description: description,
-                adresse: adresse,
-                estVeg: estVeg,
-                temps: new Date(),
-            })
-            window.location.href ='/merci'
-            return false;
-        }
+    //         nom = event.target.nom.value;
+    //         portions = event.target.portions.value;
+    //         prix = event.target.prix.value;
+    //         ingredients = event.target.ingredients.value;
+    //         lieu = event.target.lieu.value;
+    //         type = event.target.type.value;
+    //         image_url = event.target.image_url.value;
+    //         image_alt = event.target.image_alt.value;
+    //         description = event.target.description.value;
+    //         adresse = event.target.adresse.value;
+    //         estVeg = event.target.estVeg.value;
 
-    });
+    //         Repas.insert({
+    //             nom: nom,
+    //             portions: portions,
+    //             prix: prix,
+    //             ingredients: ingredients,
+    //             lieu: lieu,
+    //             type: type,
+    //             image_url: image_url,
+    //             image_alt: image_alt,
+    //             description: description,
+    //             adresse: adresse,
+    //             estVeg: estVeg,
+    //             temps: new Date(),
+    //         })
+    //         window.location.href ='/merci'
+    //         return false;
+    //     }
+
+    // });
 }
 
 //Méthodes côté serveur
