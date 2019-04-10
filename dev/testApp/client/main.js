@@ -77,7 +77,6 @@ Repas = new Mongo.Collection('repas');
 
 //Méthodes côté client
 if (Meteor.isClient) {
-	console.log("Essai de la console");
 	Meteor.subscribe('theRepas');
 
 	//récupération des éléments de la BD pour l'accueil
@@ -91,6 +90,7 @@ if (Meteor.isClient) {
 
 	});
 
+	//Evènements de la page Post
 	Template.post.events({
 		'submit form': function (event) {
 			event.preventDefault();
@@ -105,6 +105,7 @@ if (Meteor.isClient) {
 		},
 	});
 
+	//Events lorsqu'on clique sur Submit.
 	Template.post.events({
 		'submit .ajouter-repas': function (event) {
 			//creer les variable qu'on va utiliser du formulaire
