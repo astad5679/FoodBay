@@ -13,6 +13,14 @@ Router.route('/post', function(){
         to: "main"
     });
 });
+Router.route('/login', function(){
+    this.render('navBar', {
+        to: "navBar"
+    });
+    this.render('login', {
+        to: "main"
+    });
+});
 Router.route('/details', function(){
     this.render('navBar', {
         to: "navBar"
@@ -133,6 +141,10 @@ if(Meteor.isClient) {
     //     }
 
     // });
+    //login account UI
+Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+});
 }
 
 //Méthodes côté serveur

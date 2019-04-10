@@ -8,6 +8,7 @@
 
 		<ul>
 			<li><a class="nav-button" href="/"> Accueil </a></li>
+			<li><a class="nav-button" href="/login"> Login </a></li>
 			<li><a class="nav-button" href="/post"> Post </a> </li>
 			<li><a class="nav-button" href="/user"> Profil </a> </li>
 			<li><a class="nav-button" href="/post"> Je veux vendre</a></li>
@@ -25,6 +26,17 @@
 		{{> yield 'footer'}}
 	</body>
 </template>
+
+
+<template name="login">
+	<!--<h2> Login</h2>-->
+	<form>
+		<img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">FoodBay</h1>
+  {{> loginButtons}}
+	</form>
+</template>
+
 
 <template name="home">
 	<h2> Accueil </h2>
