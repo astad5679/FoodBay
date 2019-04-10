@@ -79,15 +79,32 @@ Repas = new Mongo.Collection('repas');
 if (Meteor.isClient) {
 	Meteor.subscribe('theRepas');
 
-	//récupération des éléments de la BD pour l'accueil
+	//récupération des éléments de la BDD pour l'accueil
 	Template.home.helpers({
 		'repas': function () {
 			return Repas.find()
 		}
 	});
+	
+	
+	Template.login.helpers({
+		
+		
+		
+	});
 
-	Template.home.events({
-
+	
+	//Fonctions pour la création d'un compte.
+	Template.login.events({
+		'submit form': function(){
+			event.preventDefault();
+			var email = $('[name=email]').val();
+			var password = $('[name=password]').val();
+			Accounts.createUser({
+            email: email,
+            password: password
+			});
+		}
 	});
 
 	//Evènements de la page Post
@@ -142,8 +159,9 @@ if (Meteor.isClient) {
 
 		}});
 	//login account UI
+	
 	Accounts.ui.config({
-		passwordSignupFields: "USERNAME_ONLY"
+		 passwordSignupFields: "USERNAME_ONLY"
 	});
 }
 
