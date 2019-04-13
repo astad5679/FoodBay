@@ -95,6 +95,12 @@ if (Meteor.isClient) {
 		}
 	});
 
+	Template.home.events({
+		'click .imgListe': function(){		
+		window.location.href = '/details';
+		}	
+	})
+
 
 	Template.login.helpers({
 

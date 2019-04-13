@@ -50,19 +50,16 @@
 
 <template name="home">
 	<h2> Accueil </h2>
-	<!--liste qui affiche le nom et le pris des repas dans la BD repas-->
-	<ul class="accueil">
+	<!--liste qui affiche le nom et le pris des repas dans la BD repas -->
+	<!--pour mettre l'image en fond: style="background-image: url({{image}});" a-->
+	<ul class="container">
 		{{#each repas}}
-		<li class="accueil">{{image}} {{nom}} pour {{prix}}.- Posted by {{currentUserID}}</li><br>
+		<li class="items"><img src="{{image}}" width="100"	height="100" class="imgListe">{{temps}}<br>
+			{{nom}}<br> pour {{prix}}.- <br> Posted by {{currentUserID}}</li><br>
 		{{/each}}
-		<li><input type="submit" value="Repas Test" class="test">Spaghetti Bolognese pour 40.- Posted by Mr. X.</li>
+		<li><input type="submit" value="Repas Test" class="test">Spaghetti Bolognese<br> pour 40.- Posted by Mr. X.</li>
 	</ul>
-	<!--<form>
-		<input type="radio" value="commander" name="request"> Je veux commander <br>
-		<input type="radio" value="vendre" name="request"> Je veux vendre <br>
-		<input type="text" placeholder="Ville ou code postal"> <br>
-		<input type="button" value="Valider">
-	</form>-->
+
 </template>
 
 <template name="post">
@@ -122,10 +119,11 @@
 </template>
 
 <template name="details">
+	{{this repas}}
 	<div class="repas-detail-main">
 		<div class="repas-detail gauche">
 			<h1 class="nom"><strong>Nom du Plat:</strong> {{nom}}</h1>
-			<img class="detail-image" src="{{image_url}}" alt="{{image_alt}}">
+			<img class="detail-image" src="{{image}}" alt="{{image_alt}}">
 		</div>
 		<div class="repas-detail droit">
 			<p class="portions"><strong>Ce repas est pour:</strong> {{portions}} personnnes</p>
@@ -135,7 +133,7 @@
 			<p class="est-veg"><strong>Ce repas est:</strong> {{estVeg}}</p>
 			<p class="lieu"><strong>Le lieu est:</strong> {{lieu}}</p>
 			<p class="cout"><strong>Prix:</strong> {{prix}}</p>
-			<p class="temps"><strong>Ajouté: </strong>{{temps}}</p><!-- le temp de enregistrement -->
+			<p class="temps"><strong>Ajouté: </strong>{{temps}}</p><!-- le moment de l'enregistrement -->
 			<p class="utilisateur"><strong>Ajouté par:</strong> {{utilisateur}}</p>
 		</div>
 	</div>
