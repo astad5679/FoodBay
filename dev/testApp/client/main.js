@@ -96,9 +96,10 @@ if (Meteor.isClient) {
 	});
 
 	Template.home.events({
-		'click .imgListe': function(){		
+		'click li': function(){
 		window.location.href = '/details';
-		}	
+		return Repas.find({});	
+		}		
 	})
 
 

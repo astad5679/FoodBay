@@ -55,7 +55,7 @@
 	<ul class="container">
 		{{#each repas}}
 		<li class="items"><img src="{{image}}" width="100"	height="100" class="imgListe">{{temps}}<br>
-			{{nom}}<br> pour {{prix}}.- <br> Posted by {{currentUserID}}</li><br>
+			{{nom}}<br> pour {{prix}}.- <br> Posted by {{currentUserId}}</li><br>
 		{{/each}}
 		<li><input type="submit" value="Repas Test" class="test">Spaghetti Bolognese<br> pour 40.- Posted by Mr. X.</li>
 	</ul>
@@ -119,7 +119,6 @@
 </template>
 
 <template name="details">
-	{{this repas}}
 	<div class="repas-detail-main">
 		<div class="repas-detail gauche">
 			<h1 class="nom"><strong>Nom du Plat:</strong> {{nom}}</h1>
