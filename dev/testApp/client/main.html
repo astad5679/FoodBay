@@ -57,7 +57,6 @@
 		<li class="items"><img src="{{image}}" width="100"	height="100" class="imgListe">{{temps}}<br>
 			{{nom}}<br> pour {{prix}}.- <br> Posted by {{currentUserId}}</li><br>
 		{{/each}}
-		<li><input type="submit" value="Repas Test" class="test">Spaghetti Bolognese<br> pour 40.- Posted by Mr. X.</li>
 	</ul>
 
 </template>
@@ -132,7 +131,7 @@
 			<p class="est-veg"><strong>Ce repas est:</strong> {{estVeg}}</p>
 			<p class="lieu"><strong>Le lieu est:</strong> {{lieu}}</p>
 			<p class="cout"><strong>Prix:</strong> {{prix}}</p>
-			<p class="temps"><strong>Ajouté: </strong>{{temps}}</p><!-- le moment de l'enregistrement -->
+			<p class="temps"><strong>Ajouté: </strong> {{temps}}</p><!-- le moment de l'enregistrement -->
 			<p class="utilisateur"><strong>Ajouté par:</strong> {{utilisateur}}</p>
 		</div>
 	</div>

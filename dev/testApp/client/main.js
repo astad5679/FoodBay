@@ -87,19 +87,12 @@ if (Meteor.isClient) {
 	});
 
 	Template.home.events({
-		'click .test': function () {
-			console.log("Repas test working");
+		'click li': function () {
 			// var selectedRepas = Session.get('selectedRepas');
 			// Meteor.call('showRepas', selectedRepas);
 			window.location.href = '/details';
+			return Repas.find({});
 		}
-	});
-
-	Template.home.events({
-		'click li': function(){
-		window.location.href = '/details';
-		return Repas.find({});	
-		}		
 	})
 
 
