@@ -57,7 +57,7 @@ Router.route('/details/:_id', function () {
 	this.render('navBar', {
 		to: "navBar"
 	});
-	this.render('detail', {
+	this.render('details', {
 		to: 'main',
 		data: function () {
 			return Repas.findOne({ _id: this.params._id });
@@ -86,15 +86,21 @@ if (Meteor.isClient) {
 		}
 	});
 
-	Template.home.events({
-		'click li': function () {
+//	Template.home.events({
+//		'click li': function () {
 			// var selectedRepas = Session.get('selectedRepas');
 			// Meteor.call('showRepas', selectedRepas);
-			window.location.href = '/details';
-			return Repas.find({});
-		}
-	})
+//			window.location.href = '/details';
+//			return Repas.find({});
+//		}
+//	})
 
+	// cliquer sur un élément de la liste renovoie à sa page de détail
+	Template.home.events({
+		'click li': function(){
+			window.location.href = `/details/${this._id}`;	
+		}		
+	})
 
 	Template.login.helpers({
 
